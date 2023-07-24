@@ -41,15 +41,19 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
         title: Text(coin?.name ?? "...", textAlign: TextAlign.center),
         centerTitle: true,
       ),
-        body: Center(child: ListTile(
-            leading: Image.network(
-              coin!.imageUrl,
+        body: Center(child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.network( coin!.imageUrl, width: 150, height: 150), // Ваша картинка
+            SizedBox(height: 10), // Расстояние между картинкой и подписями
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text('Current course in USD:'),
+                Text(coin?.priceInUSD.toString() ?? "none"),
+              ],
             ),
-            title: Text(
-              coin?.priceInUSD.toString() ?? "none",
-              style: theme.textTheme.bodyMedium,
-            ),
-        )),
-    );
+          ],
+        )));
   }
 }
