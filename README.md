@@ -11,7 +11,8 @@ i hope <code>ruslan</code> die in a fire
 ![image](https://github.com/burunyuu23/GinnerdsCryptos/assets/34377854/3dfea0b3-503d-4484-afec-eb643c034463)
 ![image](https://github.com/burunyuu23/GinnerdsCryptos/assets/34377854/4f0ecd96-f92e-4e46-a4d7-8b7d950862e4)
 ![image](https://github.com/burunyuu23/GinnerdsCryptos/assets/34377854/49f628f6-fbbf-4592-89a7-417cde31c889)
-![image](https://github.com/burunyuu23/GinnerdsCryptos/assets/34377854/a35d6f04-83e0-4696-98a2-e2145000ee94)
+![image](https://github.com/burunyuu23/GinnerdsCryptos/assets/34377854/028213a1-f21d-4eaf-96d5-1d27ac93dc36)
+
 
 </div>
 
