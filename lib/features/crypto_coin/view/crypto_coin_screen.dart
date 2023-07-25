@@ -1,7 +1,10 @@
 import 'dart:developer';
 
+import 'package:first_test_app/features/crypto_coin/bloc/crypto_coin_details/crypto_coin_details_bloc.dart';
 import 'package:first_test_app/repositories/crypto_coins/crypto_coins.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 class CryptoCoinScreen extends StatefulWidget {
   const CryptoCoinScreen({super.key});
@@ -11,24 +14,17 @@ class CryptoCoinScreen extends StatefulWidget {
 }
 
 class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
-
   CryptoCoin? coin;
+  final _coinDetailsBloc = CryptoCoinDetailsBloc(
+    GetIt.I<AbstractCoinsRepo>(),
+  );
 
   @override
   void didChangeDependencies() {
     final args = ModalRoute.of(context)?.settings.arguments;
-
-    if (args == null) {
-      log('Pls provide args!');
-      return;
-    }
-    if(args is! CryptoCoin) {
-      log('Pls provide crypto coin args!');
-      return;
-    }
-
-    coin = args;
-    setState(() {});
+    assert(args != null && args is CryptoCoin, 'You must provide String args');
+    coin = args as CryptoCoin;
+    _coinDetailsBloc.add(LoadCryptoCoinDetails(currencyCode: coin!.name));
     super.didChangeDependencies();
   }
 
@@ -41,19 +37,63 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
         title: Text(coin?.name ?? "...", textAlign: TextAlign.center),
         centerTitle: true,
       ),
-        body: Center(child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.network( coin!.imageUrl, width: 256, height: 256), // Ваша картинка
-            const SizedBox(height: 0), // Расстояние между картинкой и подписями
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                const Text('Current course in USD:'),
-                Text(coin?.priceInUSD.toString() ?? "none"),
-              ],
-            ),
-          ],
-        )));
+      body: BlocBuilder<CryptoCoinDetailsBloc, CryptoCoinDetailsState>(
+        bloc: _coinDetailsBloc,
+        builder: (context, state) {
+          if (state is CryptoCoinDetailsLoaded) {
+            final coinDetails = state.coinDetails;
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 256,
+                    width: 256,
+                    child: Image.network(coinDetails.imageUrl),
+                  ),
+                  Text(
+                    coinDetails.name,
+                    style: const TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Center(
+                    child: Text(
+                      '${coinDetails.priceInUSD} \$',
+                      style: const TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Column(
+                    children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const Text('High 24 Hour: '),
+                            Text('${coinDetails.high24Hours} \$'),
+                          ]),
+                      const SizedBox(height: 6),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const Text('Low 24 Hour: '),
+                            Text('${coinDetails.low24Hours} \$'),
+                          ]),
+                    ],
+                  ),
+                ],
+              ),
+            );
+          }
+          return const Center(child: CircularProgressIndicator());
+        },
+      ),
+    );
   }
 }
