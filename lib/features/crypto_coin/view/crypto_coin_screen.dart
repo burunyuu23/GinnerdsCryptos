@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:first_test_app/repositories/models/crypto_coin.dart';
+import 'package:first_test_app/repositories/crypto_coins/crypto_coins.dart';
 import 'package:flutter/material.dart';
 
 class CryptoCoinScreen extends StatefulWidget {
@@ -44,12 +44,12 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
         body: Center(child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.network( coin!.imageUrl, width: 150, height: 150), // Ваша картинка
-            SizedBox(height: 10), // Расстояние между картинкой и подписями
+            Image.network( coin!.imageUrl, width: 256, height: 256), // Ваша картинка
+            const SizedBox(height: 0), // Расстояние между картинкой и подписями
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('Current course in USD:'),
+                const Text('Current course in USD:'),
                 Text(coin?.priceInUSD.toString() ?? "none"),
               ],
             ),
