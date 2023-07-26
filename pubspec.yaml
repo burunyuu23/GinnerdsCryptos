@@ -45,6 +45,8 @@ dependencies:
   talker_bloc_logger: ^2.1.1
   firebase_core: ^2.15.0
   json_annotation: ^4.8.1
+  hive_flutter: ^1.1.0
+  auto_route: ^7.7.1
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +60,8 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   json_serializable: ^6.7.1
   build_runner: ^2.4.6
+  hive_generator: ^2.0.0
+  auto_route_generator: ^7.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

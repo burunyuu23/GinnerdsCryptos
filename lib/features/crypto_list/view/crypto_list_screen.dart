@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:first_test_app/features/crypto_list/bloc/crypto_list_bloc.dart';
 import 'package:first_test_app/repositories/crypto_coins/crypto_coins.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +10,10 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 import '../widgets/widgets.dart';
 
+@RoutePage()
 class CryptoListScreen extends StatefulWidget {
-  const CryptoListScreen({super.key, required this.title});
+  const CryptoListScreen({super.key});
 
-  final String title;
 
   @override
   State<CryptoListScreen> createState() => _CryptoListScreenState();
@@ -35,7 +36,7 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: theme.colorScheme.inversePrimary,
-        title: Text(widget.title, textAlign: TextAlign.center),
+        title: const Text('Hi ginnerds!', textAlign: TextAlign.center),
         centerTitle: true,
         actions: [
           IconButton(onPressed: () {
