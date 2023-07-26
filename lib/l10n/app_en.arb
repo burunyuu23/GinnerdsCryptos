@@ -1,0 +1,30 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "hiGinnerds": "Hi, ginnerds!",
+  "@hiGinnerds": {
+    "description": "Title of the main page"
+  },
+  "somethingWentWrong": "Oops! Something went wrong!",
+  "@somethingWentWrong": {
+    "description": "Title of the error message"
+  },
+  "tryAgainLater": "Please try again later!",
+  "@tryAgainLater": {
+    "description": "Body of the error message"
+  },
+  "tryAgainNow": "Try again now",
+  "@tryAgainNow": {
+    "description": "Button of the error message"
+  },
+  "low24Hours": "Low 24 Hour: {value} {sign} ",
+  "@low24Hours": {
+    "description": "Title with info about low value"
+  },
+  "high24Hours": "High 24 Hour: {value} {sign} ",
+  "@high24Hours": {
+    "description": "Title with info about high value"
+  }
+}

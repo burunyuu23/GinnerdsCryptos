@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:first_test_app/features/crypto_coin/bloc/crypto_coin_details/crypto_coin_details_bloc.dart';
+import 'package:first_test_app/l10n/generated/app_localizations.dart';
 import 'package:first_test_app/repositories/crypto_coins/crypto_coins.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -86,15 +85,13 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            const Text('High 24 Hour: '),
-                            Text('${coinDetails.high24Hours} \$'),
+                            Text(AppLocalizations.of(context).high24Hours('\$', coinDetails.high24Hours)),
                           ]),
                       const SizedBox(height: 6),
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            const Text('Low 24 Hour: '),
-                            Text('${coinDetails.low24Hours} \$'),
+                            Text(AppLocalizations.of(context).low24Hours('\$', coinDetails.low24Hours)),
                           ]),
                     ],
                   ),

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:first_test_app/features/crypto_list/bloc/crypto_list_bloc.dart';
+import 'package:first_test_app/l10n/generated/app_localizations.dart';
 import 'package:first_test_app/repositories/crypto_coins/crypto_coins.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +37,7 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: theme.colorScheme.inversePrimary,
-        title: const Text('Hi ginnerds!', textAlign: TextAlign.center),
+        title: Text(AppLocalizations.of(context).hiGinnerds, textAlign: TextAlign.center),
         centerTitle: true,
         actions: [
           IconButton(onPressed: () {
@@ -74,18 +75,18 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'Oops! Something went wrong!',
+                      AppLocalizations.of(context).somethingWentWrong,
                       style: theme.textTheme.headlineMedium,
                     ),
                     Text(
-                      'Please try again later!',
+                      AppLocalizations.of(context).tryAgainLater,
                       style: theme.textTheme.labelSmall?.copyWith(fontSize: 16),
                     ),
                     TextButton(
                       onPressed: () {
                         _cryptoListBloc.add(LoadCryptoList());
                       },
-                      child: const Text('Try again now'),
+                      child: Text(AppLocalizations.of(context).tryAgainNow),
                     ),
                   ],
                 ),

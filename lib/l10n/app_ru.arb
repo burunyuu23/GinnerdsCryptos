@@ -1,0 +1,30 @@
+{
+  "helloWorld": "Здарова мир!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "hiGinnerds": "Чекаво, гиннерды!",
+  "@hiGinnerds": {
+    "description": "Title of the main page"
+  },
+  "somethingWentWrong": "Ой-ё! Что-то пошло не так!",
+  "@somethingWentWrong": {
+    "description": "Title of the error message"
+  },
+  "tryAgainLater": "Пожалуйста, попробуйте позже!",
+  "@tryAgainLater": {
+    "description": "Body of the error message"
+  },
+  "tryAgainNow": "Попробовать сейчас",
+  "@tryAgainNow": {
+    "description": "Button of the error message"
+  },
+  "low24Hours": "Дно за 24 часа: {value} {sign} ",
+  "@low24Hours": {
+    "description": "Title with info about low value"
+  },
+  "high24Hours": "Потолок за 24 часа: {value} {sign} ",
+  "@high24Hours": {
+    "description": "Title with info about high value"
+  }
+}
