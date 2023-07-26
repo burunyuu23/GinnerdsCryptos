@@ -26,10 +26,10 @@ class CryptoCoinDetailsBloc
         emit(const CryptoCoinDetailsLoading());
       }
 
-      final coinDetails =
+      final coin =
           await coinsRepository.getCoinDetails(event.currencyCode);
 
-      emit(CryptoCoinDetailsLoaded(coinDetails));
+      emit(CryptoCoinDetailsLoaded(coin));
     } catch (error, stackTrace) {
       emit(CryptoCoinDetailsLoadingFailure(error));
       GetIt.I<Talker>().handle(error, stackTrace);

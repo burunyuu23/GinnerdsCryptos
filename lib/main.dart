@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:dio/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:first_test_app/firebase_options.dart';
 import 'package:first_test_app/repositories/crypto_coins/crypto_coins.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,11 +13,18 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 import 'crypto_coins_list_app.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   final talker = TalkerFlutter.init();
 
   GetIt.I.registerSingleton(talker);
   GetIt.I<Talker>().debug("Talker started!");
+
+  final app = await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  talker.info(app.options.projectId);
 
   final dio = Dio();
   dio.interceptors.add(

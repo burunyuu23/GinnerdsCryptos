@@ -73,19 +73,18 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'Something went wrong',
+                      'Oops! Something went wrong!',
                       style: theme.textTheme.headlineMedium,
                     ),
                     Text(
-                      'Please try againg later',
+                      'Please try again later!',
                       style: theme.textTheme.labelSmall?.copyWith(fontSize: 16),
                     ),
-                    const SizedBox(height: 30),
                     TextButton(
                       onPressed: () {
                         _cryptoListBloc.add(LoadCryptoList());
                       },
-                      child: const Text('Try againg'),
+                      child: const Text('Try again now'),
                     ),
                   ],
                 ),

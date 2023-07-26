@@ -41,7 +41,8 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
         bloc: _coinDetailsBloc,
         builder: (context, state) {
           if (state is CryptoCoinDetailsLoaded) {
-            final coinDetails = state.coinDetails;
+            final coin = state.coin;
+            final coinDetails = coin.details;
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -50,10 +51,10 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
                   SizedBox(
                     height: 256,
                     width: 256,
-                    child: Image.network(coinDetails.imageUrl),
+                    child: Image.network(coinDetails.fullNameImageUrl),
                   ),
                   Text(
-                    coinDetails.name,
+                    coin.name,
                     style: const TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.w700,
